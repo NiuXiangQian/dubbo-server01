@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="activeDatabaseInfo">
+      <NewDatabaseInfo>
+        <option name="database" value="test" />
+        <option name="databaseType" value="MySql" />
+        <option name="password" value="root" />
+        <option name="url" value="192.168.88.137:3306" />
+        <option name="userName" value="root" />
+      </NewDatabaseInfo>
+    </option>
+    <option name="databaseInfos">
+      <list>
+        <NewDatabaseInfo>
+          <option name="database" value="test" />
+          <option name="databaseType" value="MySql" />
+          <option name="password" value="root" />
+          <option name="url" value="192.168.88.137:3306" />
+          <option name="userName" value="root" />
+        </NewDatabaseInfo>
+      </list>
+    </option>
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="addSerializeUid" value="true" />
+        <option name="javaMapperPackage" value="com.oracle.dubbo.mapper" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/cart-service-api/src/main/java" />
+        <option name="javaModelPackage" value="com.oracle.dubbo.model" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/cart-service-api/src/main/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="cart-service-api" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="cart-service-api">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.oracle.dubbo.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/cart-service-api/src/main/java" />
+                  <option name="javaModelPacakge" value="com.oracle.dubbo.model" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/cart-service-api/src/main/java" />
+                  <option name="xmlPackage" value="com.oracle.dubbo.mapper" />
+                  <option name="xmlPath" value="E:\idea\dubbo\cart06\cart-service-provider\src\main\java\com\oracle\dubbo\mapper" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="test:cart_items">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="CartItems" />
+                  <option name="moduleName" value="cart-service-api" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="xmlMapperPackage" value="com.oracle.dubbo.mapper" />
+        <option name="xmlMapperPath" value="E:\idea\dubbo\cart06\cart-service-provider\src\main\java\com\oracle\dubbo\mapper" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/mvc
+                            http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/util
+                            http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 主配置文件-->
+    <!-- 扫描包-->
+    <context:component-scan base-package="com.oracle"/>
+    <!-- 引入属性配置文件-->
+    <context:property-placeholder location="classpath:properties/*.properties"/>
+    <!-- 引入其他spring配置文件-->
+    <import resource="classpath:spring/application-dao.xml"/>
+    <import resource="classpath:spring/application-tx.xml"/>
+    <import resource="classpath:spring/application-redis.xml"/>
+    <import resource="classpath:MATA-INF/spring/application-dubbo.xml"/>
+
+    <!-- 开启注解aop-->
+    <aop:aspectj-autoproxy/>
+    <!-- 开启注解事务驱动-->
+    <tx:annotation-driven/>
+    <!-- !!!!!-->
+    <bean id="rt" class="org.springframework.web.client.RestTemplate"/>
+</beans>

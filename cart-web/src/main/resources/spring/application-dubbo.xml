@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress UnparsedCustomBeanInspection -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/mvc
+                            http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd
+                            http://code.alibabatech.com/schema/dubbo
+                            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- spring整合dubbo配置文件-->
+    <context:component-scan base-package="com.oracle.interceptor"/>
+    <!-- 给provider起名-->
+    <dubbo:application name="user-consumer"/>
+    <!-- 配置注册中心-->
+    <dubbo:registry address="192.168.88.133:2181,192.168.88.134:2181,192.168.88.134:2181" protocol="zookeeper"/>
+
+    <!-- 配置远程调用访问端口-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- 引用-->
+    <dubbo:reference check="false" id="userDubboService" interface="com.oracle.dubbo.service.UserDubboService"/>
+    <dubbo:reference check="false" id="itemsDubboService" interface="com.oracle.dubbo.service.ItemsDubboService"/>
+    <dubbo:reference check="false" id="jedisDubboService" interface="com.oracle.dubbo.service.JedisDubboService"/>
+
+</beans>

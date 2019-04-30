@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.dubbo.mapper.OrdersItemsRelationMapper">
+    <resultMap id="BaseResultMap" type="com.oracle.dubbo.model.OrdersItemsRelation">
+        <!--@mbg.generated-->
+        <result column="orders_id" jdbcType="INTEGER" property="ordersId"/>
+        <result column="items_id" jdbcType="INTEGER" property="itemsId"/>
+        <result column="count" jdbcType="INTEGER" property="count"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.oracle.dubbo.model.OrdersItemsRelation">
+        <!--@mbg.generated-->
+        insert into orders_items_relation (orders_id, items_id, `count`
+        )
+        values (#{ordersId,jdbcType=INTEGER}, #{itemsId,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.oracle.dubbo.model.OrdersItemsRelation">
+        <!--@mbg.generated-->
+        insert into orders_items_relation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ordersId != null">
+                orders_id,
+            </if>
+            <if test="itemsId != null">
+                items_id,
+            </if>
+            <if test="count != null">
+                `count`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ordersId != null">
+                #{ordersId,jdbcType=INTEGER},
+            </if>
+            <if test="itemsId != null">
+                #{itemsId,jdbcType=INTEGER},
+            </if>
+            <if test="count != null">
+                #{count,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+</mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oracle.dubbo.mapper.ItemsMapper">
+    <resultMap id="BaseResultMap" type="com.oracle.dubbo.model.Items">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+        <result column="count" jdbcType="INTEGER" property="count"/>
+        <result column="items_name" jdbcType="VARCHAR" property="itemsName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, price, img_url, `count`, items_name
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from items
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from items
+    </select>
+    <select id="findCount" resultType="java.lang.Long">
+        select count(*) from items
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from items
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.oracle.dubbo.model.Items"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into items (price, img_url, `count`,
+        items_name)
+        values (#{price,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER},
+        #{itemsName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.oracle.dubbo.model.Items"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into items
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="price != null">
+                price,
+            </if>
+            <if test="imgUrl != null">
+                img_url,
+            </if>
+            <if test="count != null">
+                `count`,
+            </if>
+            <if test="itemsName != null">
+                items_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="imgUrl != null">
+                #{imgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="count != null">
+                #{count,jdbcType=INTEGER},
+            </if>
+            <if test="itemsName != null">
+                #{itemsName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.oracle.dubbo.model.Items">
+        <!--@mbg.generated-->
+        update items
+        <set>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="imgUrl != null">
+                img_url = #{imgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="count != null">
+                `count` = #{count,jdbcType=INTEGER},
+            </if>
+            <if test="itemsName != null">
+                items_name = #{itemsName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.oracle.dubbo.model.Items">
+        <!--@mbg.generated-->
+        update items
+        set price = #{price,jdbcType=VARCHAR},
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+        `count` = #{count,jdbcType=INTEGER},
+        items_name = #{itemsName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
